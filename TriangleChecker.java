@@ -9,7 +9,6 @@ public class TriangleChecker {
     EQUILATERAL // Gleichseitig
   }
 
-
   public static void main(String[] args) {
     Scanner s = new Scanner(System.in);
     System.out.println("Geben Sie die Seitenlängen ein.");
@@ -46,23 +45,27 @@ public class TriangleChecker {
   }
 
   // Analyse der Dreiecksart
-  public static TriangleType checkTriangle(float a, float b, float c){
-    if(a+b > c || b+c > a || c + a >b)
+  public static TriangleType checkTriangle(float a, float b, float c)
+  {
+    if ((a > 0 && b > 0 && c > 0) && twoSidesAreToLong(a, b, c))
     {
-      return TriangleType.NONE;
-    }   
-    else if(a > 0 && b > 0 && c > 0) 
-    {
-      if(a == b  || b == c || a == c)
+       if(a == b  || b == c || a == c)
       {
         if(a == b && b == c)
         {
          return TriangleType.EQUILATERAL;
         }
-      return TriangleType.ISOSCELES;
-    }   
-    return TriangleType.NORMAL;
+        return TriangleType.ISOSCELES;
+      }
+     return TriangleType.NORMAL;
     }
-    return TriangleType.NONE;
+    else
+     return TriangleType.NONE;
   }
+   
+//check die Seiten bei Überlänge
+  public static boolean twoSidesAreToLong(float a, float b, float c)
+  {
+    return((a+b) >= c && (a+c) >= b && (b+c) >=a);
+  } 
 }
