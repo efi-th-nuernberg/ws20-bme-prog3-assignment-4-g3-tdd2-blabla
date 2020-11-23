@@ -168,4 +168,3 @@ public class TriangleCheckerTest {
         assertEquals(TriangleChecker.TriangleType.NONE, type);
     }
 }
- 
