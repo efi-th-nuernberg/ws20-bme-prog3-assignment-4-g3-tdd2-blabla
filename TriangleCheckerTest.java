@@ -33,25 +33,24 @@ public class TriangleCheckerTest {
         assertEquals(TriangleChecker.TriangleType.EQUILATERAL, type);
 
     }
+    
     @Test
     public void testValidIsosceles() {
 
         // Arrange
-        float a = 7;
+        float a = 3;
         float b = 5;
-        float c = 5;
+        float c = 3;
 
         // Act
         TriangleChecker.TriangleType type = TriangleChecker.checkTriangle(a, b, c);
 
         // Assert
-    
-
         assertEquals(TriangleChecker.TriangleType.ISOSCELES, type);
-
     }
+    
      @Test
-    public void testValidNone1() {
+    public void testValidSideAIsTooLong() {
 
         // Arrange
         float a = 7;
@@ -62,13 +61,41 @@ public class TriangleCheckerTest {
         TriangleChecker.TriangleType type = TriangleChecker.checkTriangle(a, b, c);
 
         // Assert
-    
-
         assertEquals(TriangleChecker.TriangleType.NONE, type);
-
     }
+
+    @Test
+    public void testValidSideBIsTooLong() {
+
+        // Arrange
+        float a = 2;
+        float b = 8;
+        float c = 2;
+
+        // Act
+        TriangleChecker.TriangleType type = TriangleChecker.checkTriangle(a, b, c);
+
+        // Assert
+        assertEquals(TriangleChecker.TriangleType.NONE, type);
+    }
+
+    @Test
+    public void testValidSideCIsTooLong() {
+
+        // Arrange
+        float a = 2;
+        float b = 3;
+        float c = 8;
+
+        // Act
+        TriangleChecker.TriangleType type = TriangleChecker.checkTriangle(a, b, c);
+
+        // Assert
+        assertEquals(TriangleChecker.TriangleType.NONE, type);
+    }
+    
      @Test
-    public void testValidNone2() {
+    public void testValidNoneOneSideIsNegativ() {
 
         // Arrange
         float a = -7;
@@ -79,13 +106,11 @@ public class TriangleCheckerTest {
         TriangleChecker.TriangleType type = TriangleChecker.checkTriangle(a, b, c);
 
         // Assert
-    
-
         assertEquals(TriangleChecker.TriangleType.NONE, type);
-
     }
+    
      @Test
-    public void testValidNone3() {
+    public void testValidNoneSidesAreTooShort() {
 
         // Arrange
         float a = 7;
@@ -96,13 +121,11 @@ public class TriangleCheckerTest {
         TriangleChecker.TriangleType type = TriangleChecker.checkTriangle(a, b, c);
 
         // Assert
-    
-
         assertEquals(TriangleChecker.TriangleType.NONE, type);
-
     }
+    
     @Test
-    public void testValidNone4() {
+    public void testValidNoneOneSideIsZero() {
 
         // Arrange
         float a = 0;
@@ -113,13 +136,11 @@ public class TriangleCheckerTest {
         TriangleChecker.TriangleType type = TriangleChecker.checkTriangle(a, b, c);
 
         // Assert
-    
-
         assertEquals(TriangleChecker.TriangleType.NONE, type);
-
     }
+    
     @Test
-    public void testValidNone5() {
+    public void testValidNoneTowSidesAreNegativ() {
 
         // Arrange
         float a = 7;
@@ -130,13 +151,10 @@ public class TriangleCheckerTest {
         TriangleChecker.TriangleType type = TriangleChecker.checkTriangle(a, b, c);
 
         // Assert
-    
-
         assertEquals(TriangleChecker.TriangleType.NONE, type);
-
     }
     @Test
-    public void testValidNone6() {
+    public void testValidNoneAllSidesAreNegativ() {
 
         // Arrange
         float a = 0;
@@ -147,9 +165,7 @@ public class TriangleCheckerTest {
         TriangleChecker.TriangleType type = TriangleChecker.checkTriangle(a, b, c);
 
         // Assert
-    
-
         assertEquals(TriangleChecker.TriangleType.NONE, type);
-
     }
 }
+ 
